@@ -1,0 +1,9 @@
+{
+    "Id": "ChordSwitcher",
+    "PackPath": "ChordSwitcher.pck",
+    "Metadata": {
+        "Name": "ChordSwitcher",
+        "Author": "Nowaha",
+        "Version": "1.0.0"
+    }
+}
