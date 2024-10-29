@@ -13,7 +13,7 @@ A simple WEBFISHING mod that allows you to easily save and load multiple chord s
 - `SHIFT` + `F11`: save all chord sets to file
 
 ## Files
-This project writes/reads a single file to the same directory as your WEBFISHING save file, to `custom_files.json`.
+This project writes/reads a single file to the same directory as your WEBFISHING save file, to `custom_chords.json`. *Your game save file is safe!*
 
 ## Installation
 > **NOTE:** GDWeave is required to use the mod, which can be found [here](https://github.com/NotNite/GDWeave/) if you do not have it yet.
