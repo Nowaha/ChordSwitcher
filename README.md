@@ -18,4 +18,13 @@ This project writes/reads a single file to the same directory as your WEBFISHING
 ## Installation
 > **NOTE:** GDWeave is required to use the mod, which can be found [here](https://github.com/NotNite/GDWeave/) if you do not have it yet.
 
-TODO
+[Download the latest release](https://github.com/Nowaha/ChordSwitcher/releases/latest/download/ChordSwitcher.zip) and extract it inside of your `GDWeave/mods` folder, so that it exists as a normal folder in there alongside your other mods.
+
+You should end up with this structure:
+```
+GDWeave/
+  mods/
+    ChordSwitcher/
+      ChordSwitcher.pck
+      manifest.json
+```
