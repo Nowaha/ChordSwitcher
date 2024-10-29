@@ -8,7 +8,7 @@ A simple WEBFISHING mod that allows you to easily save and load multiple chord s
 
 ## Keybinds
 - `F1`-`F9`: load chord set 1-9
-- `CTRL` + `F1`-`F9`: save configuration 1-9
+- `CTRL` + `F1`-`F9`: save chord set 1-9
 - `SHIFT` + `F10`: load all chord sets from file
 - `SHIFT` + `F11`: save all chord sets to file
 
