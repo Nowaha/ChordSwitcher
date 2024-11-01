@@ -30,11 +30,11 @@ func _inject(guitar_node: Node) -> void:
 	
 	guitar.connect("tree_exiting", self, "_guitar_closed")
 
-func _guitar_closed():
+func _guitar_closed() -> void:
 	l("Disconnecting from guitar")
 	guitar = null
 
-func refresh_guitar(guitar: Node):
+func refresh_guitar(guitar: Node) -> void:
 	guitar._select_shape(guitar.selected_shape)
 
 func ld(index: int) -> void:
@@ -103,7 +103,7 @@ func _input(event):
 
 
 # Utils
-func l(message: String):
+func l(message: String) -> void:
 	print("ChordSwitcher: " + message)
 
 func findGuitarNode() -> Node:
