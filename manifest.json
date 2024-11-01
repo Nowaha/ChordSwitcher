@@ -1,9 +1,10 @@
 {
     "Id": "ChordSwitcher",
+    "AssemblyPath": "ChordSwitcher.dll",
     "PackPath": "ChordSwitcher.pck",
     "Metadata": {
         "Name": "ChordSwitcher",
         "Author": "Nowaha",
-        "Version": "1.0.0"
+        "Version": "1.0.1"
     }
 }
