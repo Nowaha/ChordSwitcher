@@ -10,17 +10,7 @@ var guitar: Node = null
 func _ready():
 	var i = 0
 	while i < 9:
-		saved.append([
-			[0, 0, 0, 0, 0, 0], 
-			[0, 0, 0, 0, 0, 0], 
-			[0, 0, 0, 0, 0, 0], 
-			[0, 0, 0, 0, 0, 0], 
-			[0, 0, 0, 0, 0, 0], 
-			[0, 0, 0, 0, 0, 0], 
-			[0, 0, 0, 0, 0, 0], 
-			[0, 0, 0, 0, 0, 0], 
-			[0, 0, 0, 0, 0, 0], 
-		])
+		saved.append(PlayerData.DEFAULT_GUITAR_SHAPES.duplicate())
 		i += 1
 		
 	ever_saved = load_chords_from_file()
