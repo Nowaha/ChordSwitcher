@@ -1,6 +1,8 @@
 # ChordSwitcher
 A simple WEBFISHING mod that allows you to easily save and load multiple chord sets! This makes it a lot easier to play multiple songs or store more than just 9 chords.
 
+![](res/ui.png)
+
 ## Features
 - **Easy chord list switching:** Save up to 9 chord sets with 9 chords each!
 - **Persistent:** You can save and load the chords from a file when you choose!
@@ -8,9 +10,6 @@ A simple WEBFISHING mod that allows you to easily save and load multiple chord s
 
 ## Keybinds
 - `F1`-`F9`: load chord set 1-9
-- `CTRL` + `F1`-`F9`: save chord set 1-9
-- `SHIFT` + `F10`: load all chord sets from file
-- `SHIFT` + `F11`: save all chord sets to file
 
 ## Files
 This project writes/reads a single file to the same directory as your WEBFISHING save file, to `custom_chords.json`. *Your game save file is safe!*
