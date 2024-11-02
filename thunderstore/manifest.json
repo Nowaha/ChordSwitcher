@@ -1,0 +1,9 @@
+{
+    "name": "ChordSwitcher",
+    "description": "Lets you easily store & switch between Chord Sets with F1-F9 to save more chords for more songs!",
+    "version_number": "2.0.0",
+    "website_url": "https://github.com/Nowaha/ChordSwitcher",
+    "dependencies": [
+        "NotNet-GDWeave-2.0.12"
+    ]
+}
