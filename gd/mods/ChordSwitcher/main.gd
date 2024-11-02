@@ -1,10 +1,13 @@
 class_name ChordSwitcher
 extends Node
 
+signal _switched_set(index)
+
+var selected_index: int = 0
+
 var file_path: String = "user://custom_chords.json"
 var ever_saved: bool = false
 var saved: Array = []
-var selected_index: int = 0
 var guitar: Node = null
 
 func _ready():
@@ -12,7 +15,7 @@ func _ready():
 	while i < 9:
 		saved.append(PlayerData.DEFAULT_GUITAR_SHAPES.duplicate())
 		i += 1
-		
+
 	ever_saved = load_chords_from_file()
 
 	l("Ready!")
@@ -20,6 +23,7 @@ func _ready():
 func _inject(guitar_node: Node) -> void:
 	l("Injecting guitar")
 	guitar = guitar_node
+	guitar.connect("tree_exiting", self, "_guitar_closed")
 	
 	if ever_saved:
 		guitar.saved_shapes = saved[selected_index].duplicate()
@@ -28,7 +32,9 @@ func _inject(guitar_node: Node) -> void:
 		saved[0] = guitar.saved_shapes.duplicate()
 		ever_saved = save_chords_to_file()
 	
-	guitar.connect("tree_exiting", self, "_guitar_closed")
+	var fret_main = guitar.get_child(1)
+	var sets: Panel = load("res://mods/ChordSwitcher/sets/sets.tscn").instance()
+	fret_main.add_child(sets)
 
 func _guitar_closed() -> void:
 	l("Disconnecting from guitar")
@@ -47,6 +53,7 @@ func ld(index: int) -> void:
 	refresh_guitar(guitar)
 	
 	notify("Loading from " + str(index + 1))
+	emit_signal("_switched_set", index)
 
 func sv(index: int) -> void:
 	if guitar == null:
