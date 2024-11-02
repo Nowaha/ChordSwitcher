@@ -24,12 +24,13 @@ func _inject(guitar_node: Node) -> void:
 	l("Injecting guitar")
 	guitar = guitar_node
 	guitar.connect("tree_exiting", self, "_guitar_closed")
+	guitar.connect("_fret_update", self, "_on_fret_update")
 	
 	if ever_saved:
-		guitar.saved_shapes = saved[selected_index].duplicate()
+		guitar.saved_shapes = saved[selected_index].duplicate(true)
 		refresh_guitar(guitar)
 	else:
-		saved[0] = guitar.saved_shapes.duplicate()
+		saved[0] = guitar.saved_shapes.duplicate(true)
 		ever_saved = save_chords_to_file()
 	
 	var fret_main = guitar.get_child(1)
@@ -49,20 +50,24 @@ func ld(index: int) -> void:
 		return
 
 	selected_index = index
-	guitar.saved_shapes = saved[index].duplicate()
+	guitar.saved_shapes = saved[index].duplicate(true)
 	refresh_guitar(guitar)
 	
-	notify("Loading from " + str(index + 1))
+	l("Loading from " + str(index + 1))
 	emit_signal("_switched_set", index)
+
+func _on_fret_update(string, fret, is_chord) -> void:
+	if is_chord: return
+	sv(selected_index)
 
 func sv(index: int) -> void:
 	if guitar == null:
 		notify("Failed to find guitar!", 1)
 		return
 	
-	saved[index] = guitar.saved_shapes.duplicate()
+	saved[index] = guitar.saved_shapes.duplicate(true)
 	
-	notify("Saving in " + str(index + 1))
+	l("Saving in " + str(index + 1))
 
 func save_chords_to_file() -> bool:
 	var file = File.new()
@@ -85,7 +90,7 @@ func load_chords_from_file() -> bool:
 		notify("Loaded chords from file!")
 		
 		if guitar != null:
-			guitar.saved_shapes = saved[selected_index].duplicate()
+			guitar.saved_shapes = saved[selected_index].duplicate(true)
 			refresh_guitar(guitar)
 		
 		return true
@@ -103,10 +108,6 @@ func _input(event):
 				sv(i)
 			elif !event.shift:
 				ld(i)
-		elif event.scancode == KEY_F10 and event.shift:
-			load_chords_from_file()
-		elif event.scancode == KEY_F11 and event.shift:
-			save_chords_to_file()
 
 
 # Utils
